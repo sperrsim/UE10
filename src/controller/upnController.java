@@ -37,7 +37,7 @@ public class upnController{
         {
             try
             {
-                numbers.add(Double.parseDouble(numb_txt.getText()));
+                numbers.push(Double.parseDouble(numb_txt.getText()));
                 numb_list.setItems((stackToObservable(numbers)));
             }
             catch (Exception e)
@@ -79,6 +79,112 @@ public class upnController{
             message_lbl.setText("Zahl zu lang!");
             message_lbl.setVisible(true);
         }
+    }
+
+    public void clearInput()
+    {
+        numb_txt.setText("");
+    }
+
+    public void clearStack()
+    {
+        numb_txt.setText("");
+        while (!numbers.empty())
+        {
+            numbers.pop();
+        }
+        numb_list.refresh();
+    }
+
+    public void addition()
+    {
+        addNumber();
+        if(numbers.size() >= 2)
+        {
+            try {
+                double sum = numbers.pop() + numbers.pop();
+                numbers.push(sum);
+            } catch (ArithmeticException e)
+            {
+                message_lbl.setText("Error!");
+                message_lbl.setVisible(true);
+            }
+        }
+        else
+        {
+            message_lbl.setText("Zu wenige Zahlen für diese Operation vorhanden!");
+            message_lbl.setVisible(true);
+        }
+        numb_list.refresh();
+    }
+
+    public void subtraction()
+    {
+        addNumber();
+        if(numbers.size() >= 2)
+        {
+            try {
+                double top = numbers.pop();
+                double dif = numbers.pop() - top;
+                numbers.push(dif);
+            } catch (ArithmeticException e)
+            {
+                message_lbl.setText("Error!");
+                message_lbl.setVisible(true);
+            }
+
+        }
+        else
+        {
+            message_lbl.setText("Zu wenige Zahlen für diese Operation vorhanden!");
+            message_lbl.setVisible(true);
+        }
+        numb_list.refresh();
+    }
+
+    public void multiplication()
+    {
+        addNumber();
+        if(numbers.size() >= 2)
+        {
+            try {
+                double prod = numbers.pop() * numbers.pop();
+                numbers.push(prod);
+            } catch (ArithmeticException e)
+            {
+                message_lbl.setText("Error!");
+                message_lbl.setVisible(true);
+            }
+        }
+        else
+        {
+            message_lbl.setText("Zu wenige Zahlen für diese Operation vorhanden!");
+            message_lbl.setVisible(true);
+        }
+        numb_list.refresh();
+    }
+
+    public void division()
+    {
+        addNumber();
+        if(numbers.size() >= 2)
+        {
+            try {
+                double top = numbers.pop();
+                double quot = numbers.pop() / top;
+                numbers.push(quot);
+            } catch (ArithmeticException e)
+            {
+                message_lbl.setText("Error!");
+                message_lbl.setVisible(true);
+            }
+        }
+        else
+        {
+            message_lbl.setText("Zu wenige Zahlen für diese Operation vorhanden!");
+            message_lbl.setVisible(true);
+        }
+        numb_list.refresh();
     }
 
     public ObservableList stackToObservable(Stack stack)
