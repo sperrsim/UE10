@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="650.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.upnController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="670.0" minWidth="-Infinity" prefHeight="400.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.upnController">
    <children>
       <TextField fx:id="numb_txt" editable="false" minHeight="50.0" promptText="Zahl">
          <font>
@@ -132,7 +132,7 @@
                                     <Font size="32.0" />
                                  </font>
                               </Button>
-                              <Button minHeight="100.0" minWidth="150.0" mnemonicParsing="false" text="1/x">
+                              <Button minHeight="100.0" minWidth="150.0" mnemonicParsing="false" onAction="#turnAround" text="1/x">
                                  <font>
                                     <Font size="32.0" />
                                  </font>
@@ -151,7 +151,7 @@
                                     <Font size="32.0" />
                                  </font>
                               </Button>
-                              <Button minHeight="100.0" minWidth="150.0" mnemonicParsing="false" text="x &lt;-&gt; y">
+                              <Button minHeight="100.0" minWidth="150.0" mnemonicParsing="false" onAction="#switchTop" text="x &lt;-&gt; y">
                                  <font>
                                     <Font size="32.0" />
                                  </font>

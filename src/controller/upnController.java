@@ -187,6 +187,46 @@ public class upnController{
         numb_list.refresh();
     }
 
+    public void turnAround()
+    {
+        addNumber();
+        if(numbers.size() >= 1)
+        {
+            try {
+                double turn = 1/numbers.pop();
+                numbers.push(turn);
+            } catch (ArithmeticException e)
+            {
+                message_lbl.setText("Error!");
+                message_lbl.setVisible(true);
+            }
+        }
+        else
+        {
+            message_lbl.setText("Zu wenige Zahlen für diese Operation vorhanden!");
+            message_lbl.setVisible(true);
+        }
+        numb_list.refresh();
+    }
+
+    public void switchTop()
+    {
+        addNumber();
+        if(numbers.size() >= 2)
+        {
+                double top = numbers.pop();
+                double buttom = numbers.pop();
+                numbers.push(top);
+                numbers.push(buttom);
+        }
+        else
+        {
+            message_lbl.setText("Zu wenige Zahlen für diese Operation vorhanden!");
+            message_lbl.setVisible(true);
+        }
+        numb_list.refresh();
+    }
+
     public ObservableList stackToObservable(Stack stack)
     {
         ObservableList<Double> observableList = FXCollections.observableList(stack);
